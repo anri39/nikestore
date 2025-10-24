@@ -1,0 +1,22 @@
+<div class="w-[300px] border flex flex-col p-3 ml-10 rounded-2xl shadow-md relative">
+  <p class="absolute top-5 left-6 border rounded-2xl p-2 shadow-md select-none w-30">Best Seller</p>
+  <div class="absolute right-6 top-6">
+    <div
+      class="border rounded-2xl p-2 shadow-md select-none cursor-pointer w-10 h-10 flex items-center justify-center hover:bg-red-50 transition-colors"
+      (click)="toggleHeart()"
+    >
+      <i
+        [class]="clicked() ? 'fas fa-heart text-lg' : 'far fa-heart text-lg'"
+        [style.color]="clicked() ? '#ef4444' : '#6b7280'"
+      ></i>
+    </div>
+  </div>
+  <img src="/assets/nikeshoetest.png" class="w-[300px] bg-[#f0f0f0] border rounded-2xl mb-1" />
+  <h1 class="font-bold">Dunk High "Green Satin" Sneakers</h1>
+  <p class="mt-1 text-xl">$180.00</p>
+  <button
+    class="w-full bg-[#2c2c2c] text-white h-10 border rounded-3xl mt-2 hover:opacity-90 transition duration-750"
+  >
+    Buy Now
+  </button>
+</div>
