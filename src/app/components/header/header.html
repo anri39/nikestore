@@ -1,0 +1,19 @@
+<div class="flex justify-between items-center p-4 border-b px-10 mb-10">
+  <h1 class="text-xl font-bold">{{ siteName() }}</h1>
+
+  <div class="flex-grow max-w-md mx-4">
+    <input
+      type="text"
+      placeholder="Search products..."
+      class="w-full border black rounded-lg px-3 py-2 focus:outline-none transition"
+    />
+  </div>
+
+  <div class="relative cursor-pointer">
+    <i class="fas fa-shopping-cart text-2xl"></i>
+    <span
+      class="absolute -top-1 -right-1 bg-black text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center"
+      >{{ carts.itemsCount }}</span
+    >
+  </div>
+</div>

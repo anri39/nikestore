@@ -1,4 +1,4 @@
-<div class="flex flex-wrap justify-center items-center w-full gap-3">
+<div class="flex flex-wrap justify-center items-center w-full gap-6">
   @for (clothing of clothing.clothing(); track clothing.id) {
   <app-card [title]="clothing.title" [price]="clothing.price" [img]="clothing.images[0]" />
   }

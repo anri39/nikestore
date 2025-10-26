@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 
-type product = {
+export type product = {
   id: number;
   title: string;
   price: number;

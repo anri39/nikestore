@@ -1,4 +1,5 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
+import { Cart } from '../../services/cart';
 
 @Component({
   selector: 'app-card',
@@ -20,4 +21,6 @@ export class Card {
     this.clicked.set(!this.clicked());
     this.count.set(this.clicked() ? this.count() + 1 : this.count() - 1);
   }
+
+  carts = inject(Cart);
 }
