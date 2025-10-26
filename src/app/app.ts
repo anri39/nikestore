@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { Card } from './components/card/card';
+import { Mainpage } from './pages/mainpage/mainpage';
 
 @Component({
   selector: 'app-root',
-  imports: [Card],
+  imports: [Mainpage],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
