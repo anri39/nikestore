@@ -1,5 +1,5 @@
 <div class="flex flex-wrap justify-center items-center w-full gap-6">
-  @for (clothing of clothing.clothing(); track clothing.id) {
-  <app-card [title]="clothing.title" [price]="clothing.price" [img]="clothing.images[0]" />
+  @for (item of clothing.filteredClothing(); track item.id) {
+  <app-card [title]="item.title" [price]="item.price" [img]="item.image" />
   }
 </div>

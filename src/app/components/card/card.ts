@@ -1,5 +1,6 @@
 import { Component, inject, input, signal } from '@angular/core';
 import { Cart } from '../../services/cart';
+import { Product } from '../../services/product';
 
 @Component({
   selector: 'app-card',
@@ -13,6 +14,7 @@ export class Card {
   title = input.required<string>();
   price = input.required<number>();
   img = input.required<string>();
+  searchTerm = signal('');
 
   count = signal(Math.floor(Math.random() * 350)); // random like count
   inStock = signal(Math.random() < 0.5); // random check if its in stock

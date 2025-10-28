@@ -5,7 +5,7 @@ export type product = {
   id: number;
   title: string;
   price: number;
-  images: string[];
+  image: string;
   tag?: string;
   category?: string;
   description?: string;
@@ -18,6 +18,8 @@ export class Product {
   clothing = signal<product[]>([]);
   loading = signal<boolean>(false);
   error = signal<string | null>(null);
+  searchTerm = signal('');
+  filteredClothing = signal<product[]>([]);
 
   constructor(private http: HttpClient) {}
 
@@ -27,12 +29,24 @@ export class Product {
     this.fetched = true;
     this.loading.set(true);
     this.error.set(null);
-    this.http
-      .get<product[]>('https://api.escuelajs.co/api/v1/products?offset=0&limit=50')
-      .subscribe({
-        next: (res) => this.clothing.set(res),
-        error: (err) => this.error.set(err.message || 'Failed to load products'),
-        complete: () => this.loading.set(false),
-      });
+    this.http.get<product[]>('https://fakestoreapi.com/products').subscribe({
+      next: (res) => {
+        this.clothing.set(res);
+        this.filteredClothing.set(res);
+      },
+      error: (err) => {
+        this.error.set(err.message || 'Failed to load products');
+      },
+      complete: () => this.loading.set(false),
+    });
+  }
+
+  search(term: string) {
+    this.searchTerm.set(term);
+    const everyProduct = this.clothing();
+    const filtered = everyProduct.filter((product) =>
+      product.title.toLowerCase().includes(term.toLowerCase())
+    );
+    this.filteredClothing.set(filtered);
   }
 }

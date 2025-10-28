@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { Cart } from '../../services/cart';
+import { Product } from '../../services/product';
 
 @Component({
   selector: 'app-header',
@@ -10,4 +11,9 @@ import { Cart } from '../../services/cart';
 export class Header {
   siteName = signal('Clothing Store');
   carts = inject(Cart);
+  query = signal('');
+  products = inject(Product);
+  onInput() {
+    this.products.search(this.query());
+  }
 }
