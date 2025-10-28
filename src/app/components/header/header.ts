@@ -14,6 +14,6 @@ export class Header {
   query = signal('');
   products = inject(Product);
   onInput() {
-    this.products.search(this.query());
+    this.products.search(this.query().trim());
   }
 }

@@ -7,6 +7,7 @@ import { product } from './product';
 export class Cart {
   items = signal<product[]>([]);
   addToCart(product: product) {
+    console.log('added product: ' + product.title);
     this.items.set([...this.items(), product]);
   }
 
